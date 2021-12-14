@@ -1,66 +1,39 @@
-class Car:
+class Stationery:
     
-    def __init__(self, speed, color, name, is_police):
-        self.speed = speed
-        self.color = color
-        self.name = name
-        self.is_police = is_police
+    def __init__(self, title):
+        self.title = title
     
-    def show_speed(self):
-        return self.name, 'скорость:', self.speed
+    def draw(self):
+        return f'Запуск отрисовки.'
     
-    def go(self):
-        return  'машина', self.name, 'поехала'
-    
-    def stop(self):
-        return  'машина', self.name, 'остановилась'
-    
-    def turn(self, i):
-        if i == '<':
-            return 'машина', self.name, 'повернула налево'
-        elif i == '>':
-            return 'машина', self.name, 'повернула направо'
 
-class TownCar(Car):
+class Pen(Stationery):
     
-    def __init__(self, speed, color, name, is_police):
-        super().__init__(speed, color, name, is_police)
+    def __init__(self, title):
+        super().__init__(title)
     
-    def show_speed(self):
-        print('Скорость', self.name, 'автомобиля:', self.speed)
-        if self.speed > 60:
-            return 'Скорость', self.name, 'превышена'
+    def draw(self):
+            return f'Запуск отрисовки {self.title}'
 
-class WorkCar(Car):
+class Pencil(Stationery):
     
-    def __init__(self, speed, color, name, is_police):
-        super().__init__(speed, color, name, is_police)
+    def __init__(self, title):
+        super().__init__(title)
     
-    def show_speed(self):
-        print('Скорость', self.name, 'автомобиля:', self.speed)
-        if self.speed > 40:
-            return 'Скорость', self.name, 'превышена'
+    def draw(self):
+        return f'Запуск отрисовки {self.title}'
     
-class SportCar(Car):
+class Handle(Stationery):
     
-    def __init__(self, speed, color, name, is_police):
-        super().__init__(speed, color, name, is_police)
-        
-class PoliceCar(Car):
+    def __init__(self, title):
+        super().__init__(title)
     
-    def __init__(self, speed, color, name, is_police):
-        super().__init__(speed, color, name, is_police)
-        
-    def police(self):
-        if self.is_police:
-            return self.name,'Полиция'
+    def draw(self):
+        return f'Запуск отрисовки {self.title}'
 
-citroen = TownCar(65, 'Серая', 'CITROEN', False)
-bmw = SportCar(250, 'Голубая', 'BMW', False)
-lada = WorkCar(100, 'Синяя', 'Лада', False)
-honda = PoliceCar(120, 'Красная', 'HONDA', True)
-print(citroen.go())
-print(citroen.show_speed())
-print(lada.turn('>'))
-print(bmw.show_speed())
-print(honda.police())
+pen = Pen('ручкой')
+penсil = Pencil('карандашом')
+handle = Handle('маркером')
+print(pen.draw())
+print(penсil.draw())
+print(handle.draw())
